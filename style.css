@@ -2,3 +2,19 @@
     padding: 0;
     margin: 0;
 }
+
+#board-wrapper {
+    height: 450px;
+    width: 450px;
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    border: 2px solid red;
+}
+
+.square {
+    height: 150px;
+    width: 150px;
+    border-bottom: 2px solid red;
+    border-right: 2px solid red;
+}
