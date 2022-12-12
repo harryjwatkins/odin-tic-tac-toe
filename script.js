@@ -3,10 +3,10 @@
     "use strict"
 
     const Player = (sign) => {
-        this.sign = sign;
+        let _sign = sign;
 
         const getSign = () => {
-            return sign;
+            return _sign;
         };
 
         return {
@@ -48,7 +48,10 @@
 
     const displayController = (() => {
 
-        let currentPlayer = "X";
+        const playerX = Player("X");
+        const playerO = Player("O");
+
+        let currentPlayer = playerX;
         const squares = document.querySelectorAll(".square");
 
         const updateBoard = () => {
@@ -60,9 +63,9 @@
         for (let i = 0; i < squares.length; i++) {
             squares[i].addEventListener("click", function(){
                 if (!(gameBoard.getSquare(i) === "")) return
-                gameBoard.setSquare(i,currentPlayer);
+                gameBoard.setSquare(i,currentPlayer.getSign());
                 updateBoard();
-                (currentPlayer === "X") ? currentPlayer = "Y" : currentPlayer = "X";
+                (currentPlayer === playerX) ? currentPlayer = playerO : currentPlayer = playerX;
             });
         };
 
