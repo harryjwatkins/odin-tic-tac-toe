@@ -7,7 +7,6 @@
         let board = ["X","O","X","X","O","X","X","O","X"];
 
         const getBoard = () => {
-            console.log(board);
             return board
         };
 
@@ -15,9 +14,16 @@
             return board[i]
         };
 
+        const resetBoard = () => {
+            for (let i = 0; i < board.length; i++) {
+                board[i] = "";
+            }
+        };
+
         return {
             getBoard,
-            getSquare
+            getSquare,
+            resetBoard
         };
 
     })();
