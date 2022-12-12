@@ -16,7 +16,7 @@
 
     const gameBoard = (() => {
 
-        let board = ["X","O","X","X","O","X","X","O","X"];
+        let board = ["","","","","","","","",""];
 
         const getBoard = () => {
             return board
@@ -27,6 +27,7 @@
         };
 
         const setSquare = (i, sign) => {
+            if (!(board[i]==="")) return
             board[i] = sign;
         };
 
@@ -47,6 +48,7 @@
 
     const displayController = (() => {
 
+        let currentPlayer = "X";
         const squares = document.querySelectorAll(".square");
 
         const updateBoard = () => {
@@ -55,9 +57,15 @@
             }
         };
 
-    })();
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].addEventListener("click", function(){
+                if (!(gameBoard.getSquare(i) === "")) return
+                gameBoard.setSquare(i,currentPlayer);
+                updateBoard();
+                (currentPlayer === "X") ? currentPlayer = "Y" : currentPlayer = "X";
+            });
+        };
 
-    const gameController = (() => {
 
     })();
 
